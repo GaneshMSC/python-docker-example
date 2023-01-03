@@ -1,0 +1,14 @@
+pipeline {
+  agent any 
+  stages {
+    stage('Hello') {
+       script {
+           if (env.BRANCH_NAME == 'main') {
+               echo"hello from main branch"
+           } else {
+              sh "echo 'hello from ${env.BRANCH_NAME} branch!'"
+           }
+        }
+    }
+  }
+}
